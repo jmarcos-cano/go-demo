@@ -1,0 +1,8 @@
+Docker image was created  
+ IMAGE: mcano/go-demo:v0.0.0 
+ BUILD_DATE: 2017-06-08 22:33:59 
+ GIT_REPO: https://github.com/jmarcos-cano/go-demo 
+ GIT_COMMIT: 03d74af 
+ GIT_BRANCH: master  
+ BUILD_TAG: MarcosMac.local 
+ 

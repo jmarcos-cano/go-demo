@@ -1,0 +1,35 @@
+version: '2'
+services:
+  compiler:
+    image: ${BASE_IMAGE}
+    working_dir: /var/www/app/
+    volumes:
+      - ${SRC_CODE_DIR}:/var/www/app/
+      - /tmp/go:/go
+      
+    entrypoint: sh -c ${BUILD_COMMAND}
+    
+    labels:
+      - compiler
+
+  service_docker_image:
+    image: "${IMAGE}:${VERSION}"
+    depends_on:
+      - compiler
+    entrypoint:
+      - bash
+    build:
+      context: .
+      args:
+        BIN_PATH: go-demo
+        GIT_COMMIT: ${GIT_COMMIT}
+        GIT_BRANCH: ${GIT_BRANCH}
+        GIT_REPO: ${GIT_REPO}
+        VERSION: ${VERSION}
+        BUILD_DATE: ${BUILD_DATE}
+        BUILD_TAG: ${BUILD_TAG} 
+        IMAGE: ${IMAGE}
+        VERSION: ${VERSION}  
+
+    labels:
+      - image

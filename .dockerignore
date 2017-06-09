@@ -1,0 +1,6 @@
+Dockerfile
+Makefile
+.Makefile*
+docker-compose*
+README*
+docs/
